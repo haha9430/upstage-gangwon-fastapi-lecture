@@ -27,13 +27,10 @@ async def create_user_api(
         user_create_request: UserCreateRequest,
         user_service=Depends(get_user_service)
 ):
-    user_service.create_user(
-        name=user_create_request.name,
-        email=user_create_request.email
-    )
+    user = user_service.create_user(name=user_create_request.name, email=user_create_request.email)
     return UserResponse(
-        id=0,
-        name=user_create_request.name,
-        email=user_create_request.email,
-        created_at=str(datetime.now())
+        id=user.get('id'),
+        name=user.get('name'),
+        email=user.get('email'),
+        created_at=user.get('created_at')
     )
