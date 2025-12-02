@@ -1,4 +1,7 @@
 #!/bin/bash
+set -e
+
+export PATH="$HOME/.local/bin:$PATH"
 
 # FastAPI 서버 시작 스크립트
 # 기존 프로세스 종료 (PID 파일 사용)
