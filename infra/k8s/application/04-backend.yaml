@@ -1,0 +1,35 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: backend
+  namespace: gangwon
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: backend
+  template:
+    metadata:
+      labels:
+        app: backend
+    spec:
+      containers:
+      - name: backend
+        image: upstage-gangwon-backend:lite
+        ports:
+        - containerPort: 8880
+        envFrom:
+        - configMapRef:
+            name: app-config
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: backend
+  namespace: gangwon
+spec:
+  selector:
+    app: backend
+  ports:
+  - port: 8880
+    targetPort: 8880
