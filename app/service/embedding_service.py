@@ -3,25 +3,18 @@ from typing import List
 from openai import OpenAI
 from dotenv import load_dotenv
 
+from app.repository.client.upstage_client import UpstageClient
+
 load_dotenv()
 
 
 class EmbeddingService:
     def __init__(self):
-        api_key = os.getenv("UPSTAGE_API_KEY")
-        if not api_key:
-            raise ValueError("UPSTAGE_API_KEY environment variable is required")
-        self.client = OpenAI(api_key=api_key, base_url="https://api.upstage.ai/v1")
-    
+        self._client = UpstageClient()
+
     def create_embeddings(self, texts: List[str]) -> List[List[float]]:
-        try:
-            response = self.client.embeddings.create(
-                model="solar-embedding-1-large-query",
-                input=texts
-            )
-            return [embedding.embedding for embedding in response.data]
-        except Exception as e:
-            raise RuntimeError(f"Failed to create embeddings: {str(e)}")
+        # 정제 작업은 했다 가정
+        return self._client.create_embeddings(texts=texts)
     
     def create_embedding(self, text: str) -> List[float]:
-        return self.create_embeddings([text])[0]
+        return self._client.create_embeddings([text])[0]

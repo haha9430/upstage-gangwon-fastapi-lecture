@@ -9,17 +9,15 @@ services:
     environment:
       - CHROMA_HOST_ADDR=0.0.0.0
       - CHROMA_HOST_PORT=8000
-    volumes:
-      - chroma_data:/chroma/chroma
     networks:
       - gangwon-network
     restart: unless-stopped
 
   backend:
-    image: upstage-gangwon-backend:latest
+    image: upstage-gangwon-backend:lite
     container_name: upstage-gangwon-backend
     ports:
-      - "8800:8800"
+      - "8880:8880"
     environment:
       - UPSTAGE_API_KEY=${UPSTAGE_API_KEY}
       - CHROMA_HOST=${CHROMA_HOST}
@@ -34,6 +32,3 @@ networks:
   gangwon-network:
     driver: bridge
 
-volumes:
-  chroma_data:
-    driver: local
