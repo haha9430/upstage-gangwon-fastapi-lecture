@@ -24,6 +24,12 @@ spec:
         image: upstage-gangwon-backend:lite
         ports:
         - containerPort: 8880
+        readinessProbe:
+          httpGet:
+            path: /agent/health
+            port: 8880
+          initialDelaySeconds: 5
+          periodSeconds: 5
         envFrom:
         - configMapRef:
             name: app-config
