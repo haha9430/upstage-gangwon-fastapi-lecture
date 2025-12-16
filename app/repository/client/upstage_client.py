@@ -18,7 +18,7 @@ class UpstageClient:
         )
 
     def chat_streaming(self, message: ChatRequest):
-        stream = self.client.chat.completions.create(
+        response = self.client.chat.completions.create(
             model="solar-pro2",
             messages=[
                 {
@@ -28,7 +28,6 @@ class UpstageClient:
             ],
             stream=False,
         )
-        for chunk in stream:
-            if chunk.choices[0].delta.content is not None:
-                yield chunk.choices[0].delta.content
+        return response.choices[0].message
+
 
