@@ -14,7 +14,7 @@ def init_logging() -> None:
     """
     # logs 디렉토리 없으면 생성
 
-    os.makedirs("logs", exist_ok=True)
+    # os.makedirs("logs", exist_ok=True)
     # 1) 로깅 기본 설정
     # logging.basicConfig(
     #     format="%(asctime)s [%(levelname)s] %(filename)s:%(lineno)d - %(message)s",
@@ -26,7 +26,7 @@ def init_logging() -> None:
 
 def create_logger(
         name: str = "app",
-        filename="logs/upstage-network-info.log",
+        filename="upstage-network-info.log",
         level=logging.INFO,
         console_level=logging.INFO
 ):
