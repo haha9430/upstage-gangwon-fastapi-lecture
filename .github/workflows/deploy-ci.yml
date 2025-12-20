@@ -4,7 +4,7 @@ on:
   pull_request:
     # PR이 열리거나 커밋이 추가/수정될 때 실행
     types: [ opened, synchronize, reopened, ready_for_review ]
-    branches: [ main, develop ]
+    branches: [ deploy/ci-deep ]
 
 jobs:
   quality:
