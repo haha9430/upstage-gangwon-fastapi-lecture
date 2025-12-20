@@ -15,9 +15,9 @@ dev = [
 ]
 
 [tool.ruff]
- line-length = 88
+line-length = 88
 
 [tool.ruff.format]
- quote-style = "double"
- indent-style = "space"
- line-ending = "lf"
+quote-style = "double"
+indent-style = "space"
+line-ending = "lf"
