@@ -98,7 +98,7 @@ jobs:
             docker pull ghcr.io/inspire12/upstage-gangwon-backend:latest
             
             # Navigate to deployment directory
-            cd /home/ubuntu/workspace/deploy/upstage-gangwon-backend
+            cd /home/ubuntu/workspace/deploy/upstage-gangwon-fastapi-lecture
             
             # Stop and remove existing containers
             docker-compose down
