@@ -78,4 +78,4 @@ jobs:
             kubectl apply -f .
             
             # 5. [필수] 롤아웃 재시작 (이미지 태그가 같을 경우를 대비해 확실하게 재시작)
-            kubectl rollout restart deployment/fastapi-deployment
+            kubectl rollout restart deployment/backend -n choijiung
