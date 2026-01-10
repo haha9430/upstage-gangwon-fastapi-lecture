@@ -1,0 +1,10 @@
+name: Init Actions
+
+on: workflow_dispatch # 수동으로만 실행되게 설정 (자동 실행 방지)
+
+jobs:
+  init:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Hello
+        run: echo "Actions tab is now active!"
