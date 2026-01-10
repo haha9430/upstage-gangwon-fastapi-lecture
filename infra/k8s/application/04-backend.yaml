@@ -4,6 +4,8 @@ metadata:
   name: backend
   namespace: choijiung
 spec:
+  imagePullSecrets:
+    - name: ghcr-secret
   replicas: 2
   strategy:
     type: RollingUpdate
@@ -21,7 +23,7 @@ spec:
     spec:
       containers:
       - name: backend
-        image: gangwon-choijiung:lite
+        image: ghcr.io/${{ github.repository_owner }}/gangwon-choijiung:${{ env.IMAGE_TAG }}
         ports:
         - containerPort: 8880
         resources:
