@@ -62,7 +62,11 @@ jobs:
             # EC2 내부에서 수행될 스크립트
             
             # 1. 매니페스트 파일이 있는 디렉토리로 이동 (경로 수정 필요)
-            cd /home/ubuntu/workspace/deploy/upstage-gangwon-fastapi-lecture/infra/k8s/application
+            cd /home/ubuntu/workspace/deploy/upstage-gangwon-fastapi-lecture
+            
+            git reset --hard
+            git pull origin feature/toolcalling/base
+            cd infra/k8s/application
             
             # 2. 이미지 태그 환경변수 설정
             NEW_IMAGE="ghcr.io/${{ github.repository_owner }}/gangwon-choijiung:${{ env.IMAGE_TAG }}"
