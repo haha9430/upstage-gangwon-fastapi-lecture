@@ -12,7 +12,7 @@ jobs:
       contents: read
       packages: write   # GHCR push 필수
 
-  steps:
+    steps:
       # 1. Checkout Code
       - name: Checkout code
         uses: actions/checkout@v4
