@@ -1,5 +1,5 @@
 [project]
-name = "upstage-network-project"
+name = "upstage-gangwon-project"
 version = "0.1.0"
 description = "Add your description here"
 readme = "README.md"
@@ -32,3 +32,16 @@ markers = [
     "integration: marks tests as integration tests",
     "unit: marks tests as unit tests",
 ]
+
+[dependency-groups]
+dev = [
+    "pytest>=9.0.1",
+    "ruff>=0.14.10",
+]
+[tool.ruff]
+line-length = 88
+
+[tool.ruff.format]
+quote-style = "double"
+indent-style = "space"
+line-ending = "lf"

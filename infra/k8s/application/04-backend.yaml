@@ -21,7 +21,7 @@ spec:
     spec:
       containers:
       - name: backend
-        image: gangwon-choijiung-backend:lite
+        image: gangwon-choijiung:lite
         ports:
         - containerPort: 8880
         resources:
